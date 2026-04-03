@@ -10,7 +10,7 @@ const Detail = () => {
         <div>
             <DetailTop />
             <div className='hr'></div>
-            {/* <DetailMain /> */}
+            <DetailMain />
             <div className='hr'></div>
             <DetailBottom />
         </div>
