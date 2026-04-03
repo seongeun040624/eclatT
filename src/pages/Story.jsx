@@ -1,7 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "../style/story.scss";
 
 const Story = () => {
+
+  useEffect(() => {
+    const targets = document.querySelectorAll(
+      '.item .txt, .category, .text-box'
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    targets.forEach((el) => {
+      observer.observe(el);
+
+      // 처음부터 보이는 요소 처리
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        el.classList.add('show');
+      }
+    });
+
+    return () => {
+      targets.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+
   return (
     <div className="story-wrap">
 
@@ -9,7 +43,7 @@ const Story = () => {
       <section className="brand-story">
         <p className="category">STORY</p>
 
-        <h1><img src="../img/logo.png" alt="story_logo" /></h1>
+        <h1>ÉCLAT</h1>
         <p className="sub">Essence of Light</p>
 
         <div className="text-box">
@@ -55,7 +89,7 @@ const Story = () => {
 gently touched by the first light”
             </p>
             <p className='desc-en-sub'>
-                Before the world fully awakens, a quiet stillness lingers in the air.<br /> Cool and transparent, the scent of dew-kissed greens unfolds with
+                Before the world fully awakens, a quiet stillness lingers in the air.<br /> Cool and transparent,<br />the scent of dew-kissed greens unfolds with
 the soft glow of sunrise.<br />
 Experience the clarity of a new beginning with Dawn Glow.
             </p>
@@ -64,7 +98,7 @@ Experience the clarity of a new beginning with Dawn Glow.
             </p>
             <p className="desc-kr-sub">
               세상이 완전히 깨어나기 전,  고요한 공기가 조용히 머무는 순간.<br />
-              이슬을 머금은 풀잎과 차갑고 투명한 공기가 서서히 떠오르는 빛과 함께 퍼져나갑니다.<br />
+              이슬을 머금은 풀잎과 차갑고 투명한 공기가 서서히 떠오르는 빛과 함께<br />퍼져나갑니다.
               새로운 시작의 맑음을 Dawn Glow에서 느껴보세요.
             </p>
           </div>
@@ -133,7 +167,7 @@ Embrace the quiet romance of Golden Hour.
 whispered under the quiet moonlight”
             </p>
             <p className="desc-en-sub">
-              When the noise fades into silence, a soft glow settles over the night.<br /> Powdery florals and smooth musk create a calm and introspective atmosphere,<br />like a quiet moment just for you.
+              When the noise fades into silence, a soft glow settles over the night.<br /> Powdery florals and smooth musk create a calm and introspective atmosphere, like a quiet moment just for you.
             </p>
             <p className="desc-kr">
               “달빛 아래 은은하게 내려앉는 파우더리 머스크 향”
@@ -164,7 +198,7 @@ awakening your senses with every moment.
               “빛처럼 흩어지는 다채로운 과일과 플로럴의 향”
             </p>
             <p className="desc-kr-sub">
-              빛이 여러 색으로 퍼져나가는 순간처럼, 생동감 있는 에너지가 공간을 채웁니다.<br /> 상큼한 시트러스와 경쾌한 꽃향기가 어우러져 밝고 자유로운 분위기를 만들어냅니다.<br /> 감각을 깨우는 순간을 Prism Light에서 느껴보세요.
+              빛이 여러 색으로 퍼져나가는 순간처럼, 생동감 있는 에너지가 공간을 채웁니다.<br />상큼한 시트러스와 경쾌한 꽃향기가 어우러져 밝고 자유로운 분위기를<br />만들어냅니다. 감각을 깨우는 순간을 Prism Light에서 느껴보세요.
             </p>
           </div>
         </div>
