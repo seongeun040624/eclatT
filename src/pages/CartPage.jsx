@@ -16,6 +16,25 @@ const CartPage = () => {
     { productId: 12, quantity: 1 },
   ]);
 
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalType, setModalType] = useState("");
+  const [modalMessage, setModalMessage] = useState("");
+  const [pendingRemoveId, setPendingRemoveId] = useState(null);
+
+  const openModal = (type, message, productId = null) => {
+    setModalType(type);
+    setModalMessage(message);
+    setPendingRemoveId(productId);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setModalType("");
+    setModalMessage("");
+    setPendingRemoveId(null);
+  };
+
   const cartViewItems = useMemo(() => {
     return cartItems
       .map((cartItem) => {
@@ -68,13 +87,8 @@ const CartPage = () => {
 
     const newQuantity = targetItem.quantity + delta;
 
-    if (newQuantity === 0) {
-      const isConfirmed = window.confirm(
-        "해당 상품을 장바구니에서 삭제하시겠습니까?"
-      );
-      if (isConfirmed) {
-        removeItem(productId);
-      }
+    if (newQuantity < 1) {
+      openModal("remove", "해당 상품을 장바구니에서 삭제하시겠습니까?", productId);
       return;
     }
 
@@ -91,6 +105,13 @@ const CartPage = () => {
     setCartItems((prev) =>
       prev.filter((item) => item.productId !== productId)
     );
+  };
+
+  const handleModalConfirm = () => {
+    if (modalType === "remove" && pendingRemoveId !== null) {
+      removeItem(pendingRemoveId);
+    }
+    closeModal();
   };
 
   const subtotal = cartViewItems.reduce(
@@ -123,7 +144,7 @@ const CartPage = () => {
                 <div className="product-text">
                   <span className="product-name">{item.name}</span>
                   <span className="product-meta">
-                    {item.category} / scent {item.scent}
+                    {/* {item.category} */}
                   </span>
                 </div>
               </div>
@@ -139,12 +160,18 @@ const CartPage = () => {
               </div>
 
               <div className="price-box">
-                {(item.price * item.quantity).toLocaleString()} ₩
+                {(item.price * item.quantity).toLocaleString()} 원
               </div>
 
               <button
                 className="delete-btn"
-                onClick={() => removeItem(item.id)}
+                onClick={() =>
+                  openModal(
+                    "remove",
+                    "해당 상품을 장바구니에서 삭제하시겠습니까?",
+                    item.id
+                  )
+                }
               >
                 <FiTrash2 size={18} />
               </button>
@@ -167,7 +194,7 @@ const CartPage = () => {
           <div className="summary-details">
             <div className="detail-row">
               <span>상품 금액</span>
-              <span>{subtotal.toLocaleString()} ₩</span>
+              <span>{subtotal.toLocaleString()} 원</span>
             </div>
             <div className="detail-row">
               <span>배송비</span>
@@ -175,14 +202,29 @@ const CartPage = () => {
             </div>
             <div className="total-row">
               <span>총 결제 금액</span>
-              <span>{total.toLocaleString()} ₩</span>
+              <span>{total.toLocaleString()} 원</span>
             </div>
           </div>
 
           <div className="checkout-buttons">
-            <button className="btn-black">결제</button>
-            <button className="btn-white">비회원 구매</button>
-          </div>
+            <button
+                className="btn-black"
+                onClick={() =>
+                openModal("info", "아직 준비되지 않은 서비스입니다.")
+                }
+            >
+                결제
+            </button>
+
+            <button
+                className="btn-white"
+                onClick={() =>
+                openModal("info", "아직 준비되지 않은 서비스입니다.")
+                }
+            >
+                비회원 구매
+            </button>
+            </div>
         </aside>
       </div>
 
@@ -215,6 +257,22 @@ const CartPage = () => {
           ))}
         </Swiper>
       </section>
+      {modalOpen && (
+        <div className="modal" onClick={closeModal}>
+          <div className="modal-box" onClick={(e) => e.stopPropagation()}>
+            <p>{modalMessage}</p>
+
+            <div className="modal-btn-wrap">
+              <button className="modal-cancel-btn" onClick={closeModal}>
+                닫기
+              </button>
+              <button className="modal-confirm-btn" onClick={handleModalConfirm}>
+                확인
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
