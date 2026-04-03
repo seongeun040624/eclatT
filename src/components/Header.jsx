@@ -8,8 +8,14 @@ import '../style/header.scss';
 
 const Header = () => {
   const location = useLocation();
-
   const [isHeroHeader, setIsHeroHeader] = useState(false);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   useEffect(() => {
     const handleHeaderMode = () => {
@@ -53,14 +59,14 @@ const Header = () => {
 
         <div className="header-left">
           <h1 className="header-logo hero-logo">
-            <Link to="/" className="logo">
+            <Link to="/" className="logo" onClick={scrollToTop}>
               <img src="/img/logo_f.png" alt="headerLogoImg" />
             </Link>
           </h1>
 
           <nav className="header-nav">
             <div className="gnb-item">
-              <Link to="/">HOME</Link>
+              <Link to="/" onClick={scrollToTop}>HOME</Link>
             </div>
 
             <div className="gnb-item shop-item">
@@ -85,7 +91,7 @@ const Header = () => {
         </div>
 
         <h1 className="header-center">
-          <Link to="/" className="logo">
+          <Link to="/" className="logo" onClick={scrollToTop}>
             <img src="/img/logo.png" alt="headerLogoImg" />
           </Link>
         </h1>
