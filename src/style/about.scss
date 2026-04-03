@@ -1,0 +1,7 @@
+@use './variables' as *;
+*{letter-spacing:.5px; font-family: $font-Kr;}
+
+.about{
+    background: red;
+    height: 100vh;
+}
