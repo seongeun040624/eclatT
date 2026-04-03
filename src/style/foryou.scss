@@ -1,0 +1,218 @@
+@use './variables' as *;
+
+* {
+    letter-spacing: .5px;
+    font-family: $font-Kr;
+}
+
+/* 스크롤 등장 효과 */
+.scroll-item {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity .9s ease,
+        transform .9s ease;
+}
+
+.scroll-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.foryou {
+    width: 100%;
+    background: #f5f3ef;
+    padding: 100px 60px 120px;
+}
+
+.foryou-inner {
+    padding: 0 240px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.foryou-inner h2 {
+    font-size: 28px;
+    font-weight: 500;
+    color: $sub1;
+    margin-bottom: 60px;
+}
+
+.foryou-slider-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.arrow {
+    border: none;
+    background: transparent;
+    font-size: 52px;
+    color: #9c978f;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.arrow:hover {
+    opacity: .6;
+}
+
+/* 카드 한 장을 보여주는 창 */
+.foryou-viewport {
+    width: 850px;
+    height: 520px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 카드 전체들이 가로로 이어진 트랙 */
+.foryou-track {
+    display: flex;
+    height: 100%;
+    transition: transform .7s ease;
+}
+
+/* 카드 한 장 = 왼쪽 + 오른쪽 전체 */
+.foryou-slide {
+    width: 850px;
+    height: 520px;
+    flex-shrink: 0;
+    display: flex;
+    background: #f8f8f8;
+    overflow: hidden;
+}
+
+.foryou-left {
+    width: 58%;
+    background: #f8f8f8;
+    padding: 55px 35px 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-box {
+    margin-bottom: 28px;
+}
+
+.text-box h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 8px;
+}
+
+.text-box p {
+    font-size: 14px;
+    color: #999;
+}
+
+.product-img {
+    width: 270px;
+    height: 270px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .4s ease;
+}
+
+.product-img:hover img {
+    transform: scale(1.1);
+}
+
+.btn-group {
+    width: 100%;
+    max-width: 270px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-group button {
+    width: 100%;
+    height: 40px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.light-btn {
+    border: 1px solid #7f7f7f;
+    background: transparent;
+    color: $sub1;
+    width: 100%;
+    height: 40px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: .3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.light-btn span {
+    margin-left: 8px;
+    position: relative;
+    transition: .3s;
+}
+
+.light-btn:hover {
+    background: $point;
+    color: $beige;
+}
+
+.light-btn:hover span {
+    left: 10px;
+}
+
+.foryou-right {
+    width: 42%;
+    height: 100%;
+    background: #f8f8f8;
+    overflow: hidden;
+}
+
+.foryou-right-content {
+    width: 100%;
+    height: 100%;
+}
+
+.foryou-right-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.1);
+}
+
+.bullet-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 35px;
+}
+
+.bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: #d3d3d3;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.bullet.active {
+    background: #7a7a7a;
+}
