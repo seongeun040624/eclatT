@@ -41,7 +41,8 @@ function App() {
 
 					<Route path="/story" element={<Story />} />
 					{/* <Route path="/gift" element={<Gift />} /> */}
-					<Route path="/detail:id" element={<Detail />} />
+					{/* <Route path="/detail:id" element={<Detail />} /> */}
+					<Route path="/detail/:id" element={<Detail />} />
 				</Routes>
 
 				<Footer />
