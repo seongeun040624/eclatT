@@ -28,7 +28,7 @@ function App() {
 			<ScrollTop />
 				<Header />
 
-				<Routes>
+				{/* <Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/cart" element={<CartPage />} />
 					<Route path="/login" element={<LoginPage />} />
@@ -41,8 +41,8 @@ function App() {
 					<Route path="/story" element={<Story />} />
 					<Route path="/gift" element={<Gift />} />
 					<Route path="/detail:id" element={<Detail />} />
-				</Routes>
-
+				</Routes> */}
+				<Detail />
 				<Footer />
 		</BrowserRouter>
     </>
