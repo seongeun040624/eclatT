@@ -79,7 +79,6 @@
       font-weight: 300;
       color: $sub1;
       font-size: 18px;
-      letter-spacing: 1.5px;
       margin-bottom: -40px;
     }
   }
@@ -172,7 +171,8 @@
       .desc-en-sub{
         font-size: 14px;
         margin-top: 20px;
-        font-weight: 200;
+        font-weight: 300;
+        color: $sub2;
       }
 
       .desc-kr {
@@ -184,7 +184,8 @@
       .desc-kr-sub{
         font-size: 14px;
         margin-top: 20px;
-        font-weight: 200;
+        font-weight: 300;
+        color: $sub2;
       }
     }
   }
