@@ -43,7 +43,7 @@
 
 .cart-page-container {
     width: 100%;
-    margin: 100px 0;
+    margin: 120px 0;
     padding: 0 20px;
     font-family: $font-Kr;
     color: $sub1;
@@ -60,7 +60,7 @@
 
         .cart-list-section {
         flex: 2;
-        .section-title { font-size: 24px; margin-bottom: 30px; }
+        .section-title { font-size: 24px;  margin-bottom: 30px; }
         .cart-header {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 50px;
@@ -183,10 +183,19 @@
                 font-weight: bold; 
                 border: none; 
             }
-            .btn-black { background: $point; color: #fff; }
+            .btn-black { 
+                background: $point; 
+                color: #fff;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
             .btn-white { 
                 background: #fff; 
-                color: $sub1; 
+                color: $sub1;
+                &:hover{
+                    text-decoration: underline;
+                } 
             }
         }
         }
@@ -234,8 +243,12 @@
             justify-content: center;
             text-decoration: none; 
             gap: 8px; 
-            margin: 0 auto; 
+            margin: 0 auto;
+            &:hover{
+            text-decoration: underline;
+        } 
         }
+        
         
         }
     }
