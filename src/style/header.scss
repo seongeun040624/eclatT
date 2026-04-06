@@ -160,7 +160,7 @@
    DEFAULT HEADER
    ========================= */
 .default-header {
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
@@ -188,10 +188,12 @@
 .default-header .header-nav {
   display: flex;
   align-items: center;
-  gap: 28px;
 }
 
 .default-header .gnb-item > a {
+  display: block;
+  //background: blue;
+  padding: 10px 15px;
   color: $sub1;
   font-size: 15px;
   font-weight: 600;
@@ -352,20 +354,18 @@
 
 .default-header .shop-item .sub-menu {
   position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
+  top: 30px;
+  left: 15px;
   transform: translateY(8px);
-
   min-width: 150px;
-  padding: 12px 0 0 0;
+  padding: 7px 0 0 0;
   border-radius: 0;
-  background: transparent;
   box-shadow: none;
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
+  //gap: 5px;
 
   opacity: 0;
   visibility: hidden;
@@ -377,8 +377,10 @@
     visibility 0.35s ease;
 
   a {
+    display: block;
+    padding: 7px 0;
     color: $sub1;
-    font-size: 13px;
+    font-size: 14px;
     letter-spacing: 1px;
     white-space: nowrap;
     transition: opacity 0.3s ease, color 0.3s ease;
