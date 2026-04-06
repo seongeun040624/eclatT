@@ -96,7 +96,7 @@ export const productsDetails = [
     category: "bodyoil",
     scent: "A",
     img: [
-      "/img/bodyoil1.png",
+      "/img/bodyoil1.jpg",
       "/img/oilLP1.png"
     ]
   },
@@ -105,7 +105,7 @@ export const productsDetails = [
     category: "bodyoil",
     scent: "B",
     img: [
-      "/img/bodyoil2.png",
+      "/img/bodyoil2.jpg",
       "/img/oilLP2.png"
     ]
   },
@@ -114,7 +114,7 @@ export const productsDetails = [
     category: "bodyoil",
     scent: "C",
     img: [
-      "/img/bodyoil3.png",
+      "/img/bodyoil3.jpg",
       "/img/oilLP3.png"
     ]
   },
@@ -123,7 +123,7 @@ export const productsDetails = [
     category: "bodyoil",
     scent: "D",
     img: [
-      "/img/bodyoil4.png",
+      "/img/bodyoil4.jpg",
       "/img/oilLP4.png"
     ]
   },
@@ -132,7 +132,7 @@ export const productsDetails = [
     category: "bodyoil",
     scent: "E",
     img: [
-      "/img/bodyoil5.png",
+      "/img/bodyoil5.jpg",
       "/img/oilLP5.png"
     ]
   },
