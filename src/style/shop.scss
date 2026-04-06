@@ -1,9 +1,10 @@
+@use "./_variables.scss" as *;
 .shop {
   width: 100%;
   min-height: 100vh;
-  padding: 110px 0 140px;
+  padding: 130px 0 140px;
   background: #fff;
-  color: #222;
+  color: $sub1;
 }
 
 .shop-inner {
@@ -23,14 +24,14 @@
 .shop-title-line {
   width: 180px;
   height: 2px;
-  background: #555;
+  background: $sub1;
   margin-bottom: 18px;
 }
 
 .shop-top h2 {
   font-size: 34px;
   font-weight: 400;
-  color: #2d2d2d;
+  color: $sub1;
   margin-bottom: 24px;
   line-height: 1;
 }
@@ -43,7 +44,7 @@
 
 .shop-filter a {
   text-decoration: none;
-  color: #9d9d9d;
+  color: $sub2;
   font-size: 13px;
   letter-spacing: 0.12em;
   transition: color 0.3s ease;
@@ -51,7 +52,7 @@
 
 .shop-filter a:hover,
 .shop-filter a.active {
-  color: #111;
+  color: $sub1;
 }
 
 .shop-list {
@@ -84,7 +85,7 @@
 .shop-card__image {
   width: 100%;
   aspect-ratio: 1 / 1;
-  background: #ececec;
+  background: $beige;
   overflow: hidden;
   margin-bottom: 18px;
 }
@@ -107,7 +108,7 @@
   display: inline-block;
   margin-bottom: 6px;
   font-size: 10px;
-  color: #b7b7b7;
+  color: $sub2;
   letter-spacing: 0.08em;
   line-height: 1;
 }
@@ -115,7 +116,7 @@
 .shop-card__info h3 {
   font-size: 20px;
   font-weight: 600;
-  color: #2b2b2b;
+  color: $sub1;
   line-height: 1.2;
   margin-bottom: 9px;
   transition: color 0.3s ease;
@@ -133,7 +134,7 @@
 .shop-card__price {
   font-size: 15px;
   font-weight: 600;
-  color: #2d2d2d;
+  color: $sub1;
   line-height: 1;
   transition: letter-spacing 0.3s ease;
 }
@@ -148,8 +149,8 @@
   width: 144px;
   height: 50px;
   background: transparent;
-  border: 1px solid #bfb9b1;
-  color: #555;
+  border: 1px solid #ccc;
+  color: $sub1;
   font-size: 13px;
   letter-spacing: 0.12em;
   display: flex;
@@ -159,7 +160,7 @@
   cursor: pointer;
   &:hover{
     border: none;
-    background: #555;
+    background: $point;
     color: #fff;
   }
 }

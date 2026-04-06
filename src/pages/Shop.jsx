@@ -132,7 +132,7 @@ const Shop = () => {
                   <h3>{productName}</h3>
                   <p className="shop-card__desc">{productNotes}</p>
                   <p className="shop-card__price">
-                    {categoryInfo?.price || "00,000"} KRW
+                    {categoryInfo?.price || "00,000"} 원
                   </p>
                 </div>
               </Link>
@@ -147,7 +147,7 @@ const Shop = () => {
               className="shop-end-btn"
               onClick={handleLoadMore}
             >
-              <span>END</span>
+              <span>MORE</span>
               <span className="arrow">→</span>
             </button>
           </div>
