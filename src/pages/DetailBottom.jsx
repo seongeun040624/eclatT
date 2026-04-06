@@ -1,10 +1,37 @@
 import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from "react-router-dom";
+
+import { products } from "../data/products";
+import { category } from "../data/category";
+import { scents } from "../data/scents";
+
+
 import '../style/detailbottom.scss';
 
 import { IoIosArrowDown } from "react-icons/io";
 
 const DetailBottom = () => {
+    const navigate = useNavigate();
     const [openIndex, setOpenIndex] = useState(null);
+    const { id } = useParams();
+    const product = products.find(
+            (item) => item.id === Number(id)
+        );
+    const relatedProducts = products.filter(
+        (item) =>
+            item.scent === product.scent &&
+            item.category !== product.category
+    );
+
+    const giftProduct = products.find(
+        (item) =>
+            item.scent === product.scent &&
+            item.category === "gift"
+    );
+
+    const finalRelated = giftProduct
+        ? [giftProduct, ...relatedProducts]
+        : relatedProducts;
 
     return (
         <div className='detailBottom'>
@@ -14,7 +41,7 @@ const DetailBottom = () => {
                     <h5>ÉCLAT</h5>
                     <p>Essence of Light</p>
                 </div>
-                <img src="/img" alt="비건동물복지친환경" className='vcs'/>
+                <img src="/img/vegan.png" alt="비건동물복지친환경" className='vcs'/>
             </div>
 
             <ul>
@@ -71,9 +98,31 @@ const DetailBottom = () => {
                             - 소비자의 주문에 따라 개별적으로 생산되는 상품이 제작에 들어간 경우<br />
                             * 온라인 스토어에서 구입하신 상품은 그랑핸드 오프라인 스토어에서 교환/반품이 불가합니다.
                         </li>
+                        
                     </ul>
                 </li>
+                <div className='ulhr'></div>
             </ul>
+
+            <div className="related">
+                <h4>RELATED PRODUCTS</h4>
+                <ul>
+                    {finalRelated.slice(0, 3).map((item) => {
+                        const scentInfo = scents[item.scent];
+                        const categoryInfo = category[item.category];
+
+                        return (
+                            <li key={item.id}
+                            onClick={() => navigate(`/detail/${item.id}`)}
+                            style={{ cursor: "pointer" }}>
+                                <img src={item.img[0]} alt="" />
+                                <h6>{scentInfo.name}</h6>
+                                <p>{categoryInfo.price} KRW</p>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>
         </div>
     );
 };
