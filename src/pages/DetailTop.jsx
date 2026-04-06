@@ -126,7 +126,7 @@ const DetailTop = () => {
 
                     <div className="buy_total">
                         <span>총 상품금액({count}개)</span>
-                        <span>{totalPrice}원</span>
+                        <span>{totalPrice.toLocaleString()}원</span>
                     </div>
 
                     <button className="cart_btn">Add to cart</button>

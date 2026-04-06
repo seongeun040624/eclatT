@@ -168,7 +168,8 @@ export const products = [
     scent: "A",
     img: [
       "/img/giftD.png",
-      "/img/dawn.png"
+      "/img/per1.png",
+      "/img/hand1.png"
     ],
     hashtag: "#새벽빛 #신비로움"
   },
@@ -178,7 +179,8 @@ export const products = [
     scent: "C",
     img: [
       "/img/giftG.png",
-      "/img/golden.png"
+      "/img/per3.png",
+      "/img/hand3.png"
     ],
     hashtag: "#여유로움 #로맨틱"
 
@@ -189,7 +191,8 @@ export const products = [
     scent: "D",
     img: [
       "/img/giftM.png",
-      "/img/moon.png"
+      "/img/per4.png",
+      "/img/hand4.png"
     ],
     hashtag: "#차분함 #은은한빛"
   },

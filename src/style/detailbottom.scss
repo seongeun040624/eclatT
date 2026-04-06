@@ -26,10 +26,12 @@
         line-height: 200%;
         margin-bottom: 10px;
         li{
+            padding: 0 30px;
             .liTop{
                 font-size: 18px;
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
                 span{}
                 .arrowDIcon{transition: transform 0.3s;}
                 .arrowDIcon.open {

@@ -117,7 +117,7 @@ const DetailBottom = () => {
                             style={{ cursor: "pointer" }}>
                                 <img src={item.img[0]} alt="" />
                                 <h6>{scentInfo.name}</h6>
-                                <p>{categoryInfo.price} KRW</p>
+                                <p>{categoryInfo.price} 원</p>
                             </li>
                         );
                     })}

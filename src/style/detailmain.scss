@@ -57,13 +57,12 @@
     .DMVideo{
         display: flex;
         justify-content: space-between;
-        gap: 100px;
+        gap: 20px;
         padding: 0 200px;
-        height: 650px;
+        height: 600px;
         .vi{
             display: flex;
             justify-content: center;
-            video{width: 380px;}
         }
         .videoText{
             display: flex;
