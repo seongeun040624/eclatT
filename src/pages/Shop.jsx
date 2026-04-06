@@ -39,7 +39,7 @@ const Shop = () => {
     filteredProducts = shopProducts.filter(
       (item) => item.category === "gift"
     );
-    currentTitle = "gift";
+    currentTitle = "Gift";
     isAllPage = false;
   }
 
