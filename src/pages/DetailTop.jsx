@@ -18,8 +18,8 @@ import { scents } from "../data/scents";
 
 const DetailTop = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
-    //const { id } = useParams(); 
-    const id = 1; //테스트용 끝나면 위에꺼 켜야함
+    const { id } = useParams(); 
+    //const id = 1; //테스트용 끝나면 위에꺼 켜야함
 
     // 현재 상품 찾기
     const product = products.find(
@@ -48,12 +48,7 @@ const DetailTop = () => {
         <div className='detailtop'>
             <div className="sample">
                 <Swiper
-                    /* style={{
-                    '--swiper-navigation-color': '#fff',
-                    '--swiper-pagination-color': '#fff',
-                    }} */
                     spaceBetween={10}
-                    /* navigation={true} */
                     thumbs={{ swiper: thumbsSwiper }}
                     modules={[FreeMode, Navigation, Thumbs]}
                     className="mySwiper2"

@@ -51,23 +51,33 @@
             }
         }
         .triangle{
-            img{}
+            img{width: 70%;}
         }
     }
     .DMVideo{
         display: flex;
         justify-content: space-between;
+        gap: 100px;
         padding: 0 200px;
         height: 650px;
         .vi{
-            background: #333;
+            display: flex;
+            justify-content: center;
+            video{width: 380px;}
         }
         .videoText{
-            span{}
-            p{}
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            span{
+                margin-bottom: 40px;
+                font-size: 19px;
+            }
+            p{font-size: 15px; line-height: 200%; color: #555;}
         }
     }
     .DMimg{
-        img{}
+        margin-top: 100px;
+        img{width: 950px; margin-bottom: 50px;}
     }
 }

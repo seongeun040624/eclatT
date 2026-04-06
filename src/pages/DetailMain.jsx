@@ -1,12 +1,15 @@
+import { useParams } from "react-router-dom";
 import { productsDetails } from "../data/productsDetails";
 import { category } from "../data/category";
 import { scentsDetails } from "../data/scentsDetails";
 
+import video from '/img/Project_2.mp4';
+
 import '../style/detailmain.scss';
 
 const DetailMain = () => {
-        //const { id } = useParams(); 
-        const id = 1; //테스트용 끝나면 위에꺼 켜야함
+        const { id } = useParams(); 
+        //const id = 1; //테스트용 끝나면 위에꺼 켜야함
         
     
         // 현재 상품 찾기
@@ -59,24 +62,32 @@ const DetailMain = () => {
                     </div>
                 </div>
                 <div className="triangle">
-                    <img src="/img/noteP" alt="향피라미드이미지" />
+                    <img src="/img/noteP.png" alt="향피라미드이미지" />
                 </div>
             </div>
             <div className="underline"></div>
             <div className="DMVideo">
-                <div className="vi"><video src="/img/Project_2.mp4"></video></div>
+                <div className="vi">
+                    <video autoPlay muted loop playsInline>
+                        <source src={video} type="video/mp4" />
+                    </video>
+                </div>
                 <div className="videoText">
                     <span>{scentInfo.videotext}</span>
-                    <p>{scentInfo.videotextsub.match(/[^.]+\.?/g)
+                    <div>
+                        {scentInfo.videotextsub
+                            .replace("순간처럼,", "순간처럼.\n")
+                            .match(/[^.]+\.?/g)
                             ?.map((text, i) => (
-                            <span key={i}>
+                            <p key={i}>
                                 {text.trim()}
-                                <br />
-                            </span>
-                            ))}
-                    </p>
+                            </p>
+                        ))}
+                    </div>
+                    
                 </div>
             </div>
+            <div className="underline"></div>
             <div className="DMimg">
                 {pDetails.img.map((img, idx) => (
                     <img key={idx} src={img} alt="샘플상세이미지" />

@@ -11,7 +11,7 @@ const Detail = () => {
             <DetailTop />
             <div className='hr'></div>
             <DetailMain />
-            <div className='hr'></div>
+            {/* <div className='hr'></div> */}
             <DetailBottom />
         </div>
     );
