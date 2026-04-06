@@ -11,21 +11,21 @@ const slideData = [
         tag: '#새벽빛 #청량',
         productImg: '/img/giftD.png',
         artImg: '/img/dawn.png',
-        link: '/detail/1',
+        link: '/detail/16',
     },
     {
         title: 'Golden Hour',
         tag: '#부드러운빛 #따뜻함',
         productImg: '/img/giftG.png',
         artImg: '/img/golden.png',
-        link: '/detail/2',
+        link: '/detail/17',
     },
     {
         title: 'Moon Veil',
         tag: '#은은한빛 #차분함',
         productImg: '/img/giftM.png',
         artImg: '/img/moon.png',
-        link: '/detail/3',
+        link: '/detail/18',
     },
 ];
 
