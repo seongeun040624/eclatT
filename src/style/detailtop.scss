@@ -1,0 +1,128 @@
+@use "./variables.scss" as *;
+
+.detailtop{
+    width: 1440px;
+    margin: 120px auto;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: .5;
+    color: #333;
+    background: #fff;
+    .sample{
+        width: 50%;
+        .swiper{margin-left: 0px;}
+        .mySwiper2{
+            width: 670px;
+            height: 670px;
+            display: block;
+            .swiper-slide{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+        .mySwiper{
+             margin-top: 10px;
+             width: 50%;
+             display: flex;
+             justify-content: flex-start;
+            .swiper-slide{
+                opacity: 0.6;
+                cursor: pointer;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .swiper-slide-thumb-active {
+                opacity: 1;
+            }
+        }
+    }
+    .detailT_info{
+        width: 45%;
+        padding-top: 5px;
+        .info_title{
+            border-bottom: 1px solid #ddd;
+            line-height: 180%;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            h2{
+                font-weight: 500;
+                span{font-weight: 300;}
+            }
+            h3{font-weight: 300;}
+        }
+        .info_text{
+            line-height: 160%;
+            font-size: 14px;
+            .infoE{font-weight: 500; margin-bottom: 20px;}
+            .infoK{font-weight: 300;}
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+        }
+        .info_note_mode{
+            line-height: 90%;
+            div{
+                strong{display: block; margin-bottom: 10px;}
+                div{font-weight: 300;}
+                padding-bottom: 10px;
+                font-size: 14px;
+            }
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+        }
+        .info_buy {
+            margin-top: 30px;
+            font-size: 18px;
+            font-weight: 300;
+
+            .buy_top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: $beige;
+                padding: 20px 15px;
+                margin-bottom: 12px;
+
+                .count {
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+
+                button {
+                    width: 25px;
+                    height: 25px;
+                }
+                }
+            }
+
+            .buy_total {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 15px;
+                padding: 20px 15px;
+            }
+
+            .cart_btn {
+                font-size: 18px;
+                font-weight: 300;
+                width: 100%;
+                padding: 20px 15px;
+                background: #8b837c;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
