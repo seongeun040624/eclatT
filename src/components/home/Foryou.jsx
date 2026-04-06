@@ -150,7 +150,7 @@ const Foryou = () => {
                             {extendedSlides.map((slide, index) => (
                                 <div className='foryou-slide' key={`${slide.title}-${index}`}>
                                     <div className='foryou-left'>
-                                        <div className='text-box'>
+                                        <div className='text-box1'>
                                             <h3>{slide.title}</h3>
                                             <p>{slide.tag}</p>
                                         </div>
