@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { FiPlus, FiMinus, FiTrash2, FiArrowRight } from "react-icons/fi";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from 'swiper/modules';
 import "swiper/css";
 
 import { products } from "../data/products";
@@ -121,6 +122,8 @@ const CartPage = () => {
   const shipping = subtotal > 50000 || subtotal === 0 ? 0 : 3000;
   const total = subtotal + shipping;
 
+  
+
   return (
     <div className="cart-page-container">
       <div className="cart-main-layout">
@@ -233,12 +236,18 @@ const CartPage = () => {
 
         <Swiper
           spaceBetween={25}
+          loop={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
           slidesPerView={1}
           grabCursor={true}
           breakpoints={{
             640: { slidesPerView: 2 },
             1024: { slidesPerView: 4 },
           }}
+          modules={[Autoplay]}
         >
           {recommendedItems.map((item) => (
             <SwiperSlide key={item.id}>
