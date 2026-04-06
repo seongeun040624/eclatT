@@ -64,11 +64,12 @@
     color: #666;
     line-height: 1.9;
     font-size: 15px;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 }
 
 .about-text p {
     margin-bottom: 15px;
+    line-height: 140%;
 
     opacity: 0;
     transform: translateY(40px);
@@ -80,10 +81,29 @@
     width: 850px;
     height: 300px;
     overflow: hidden;
-
+    position: relative;
     opacity: 0;
     transform: translateY(40px);
     transition: all .9s ease;
+    cursor: pointer;
+
+    p{
+        display: none;
+        position: absolute;
+        z-index: 10;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $beige;
+        font-size: 18px;
+    }
+
+    &:hover img{
+        opacity: .8;
+    }
+    &:hover p{
+        display: block;
+    }
 }
 
 .about-img img {
@@ -91,6 +111,7 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: .3s;
 }
 
 /* show 붙으면 나타남 */
