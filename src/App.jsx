@@ -1,19 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createContext } from "react";
 
-import Home from './pages/Home'
-
+import Home from './pages/Home';
 import CartPage from './pages/CartPage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 //import Gift from './pages/Gift';
 import Shop from './pages/Shop';
 import Story from './pages/Story';
+import Detail from './pages/Detail';
 
 import Header from "./components/Header";
 import ScrollTop from "./components/ScrollTop";
 import Footer from "./components/Footer";
-import Detail from './pages/Detail';
+import QuickBtn from "./components/QuickBtn";
+
 
 
 export const DataContext = createContext()
@@ -46,6 +47,7 @@ function App() {
 				</Routes>
 
 				<Footer />
+				<QuickBtn />
 		</BrowserRouter>
     </>
   )

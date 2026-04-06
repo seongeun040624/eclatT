@@ -29,26 +29,38 @@ const slideData = [
     },
 ];
 
+// 마지막 뒤에 첫 번째를 하나 더 붙여서 자연스럽게 이어지게 함
+const extendedSlides = [...slideData, slideData[0]];
+
 const SLIDE_WIDTH = 850;
+const TRANSITION_TIME = 500;
 
 const Foryou = () => {
     const sectionRef = useRef(null);
     const [current, setCurrent] = useState(0);
+    const [isTransition, setIsTransition] = useState(true);
 
     const handlePrev = () => {
-        setCurrent((prev) =>
-            prev === 0 ? slideData.length - 1 : prev - 1
-        );
+        if (!isTransition) return;
+
+        // 첫 장에서 이전 누르면 마지막 장으로 바로 이동
+        if (current === 0) {
+            setIsTransition(false);
+            setCurrent(slideData.length - 1);
+            return;
+        }
+
+        setCurrent((prev) => prev - 1);
     };
 
     const handleNext = () => {
-        setCurrent((prev) =>
-            prev === slideData.length - 1 ? 0 : prev + 1
-        );
+        if (!isTransition) return;
+        setCurrent((prev) => prev + 1);
     };
 
     const changeSlide = (index) => {
-        if (index === current) return;
+        if (!isTransition) return;
+        if (index === current || (current === slideData.length && index === 0)) return;
         setCurrent(index);
     };
 
@@ -82,6 +94,36 @@ const Foryou = () => {
         };
     }, []);
 
+    useEffect(() => {
+        // 복제 슬라이드(맨 마지막)에 도착하면
+        // 애니메이션 끝난 뒤 transition 없이 0번으로 순간 이동
+        if (current === slideData.length) {
+            const timer = setTimeout(() => {
+                setIsTransition(false);
+                setCurrent(0);
+            }, TRANSITION_TIME);
+
+            return () => clearTimeout(timer);
+        }
+    }, [current]);
+
+    useEffect(() => {
+        // transition을 끈 상태에서 위치를 0으로 옮긴 직후
+        // 다음 프레임에 다시 transition 켜기
+        if (!isTransition) {
+            const frame = requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    setIsTransition(true);
+                });
+            });
+
+            return () => cancelAnimationFrame(frame);
+        }
+    }, [isTransition]);
+
+    // bullet active 처리용
+    const activeIndex = current === slideData.length ? 0 : current;
+
     return (
         <section className='foryou' ref={sectionRef}>
             <div className='foryou-inner'>
@@ -100,10 +142,13 @@ const Foryou = () => {
                             className='foryou-track'
                             style={{
                                 transform: `translateX(-${current * SLIDE_WIDTH}px)`,
+                                transition: isTransition
+                                    ? `transform ${TRANSITION_TIME}ms ease`
+                                    : 'none',
                             }}
                         >
-                            {slideData.map((slide, index) => (
-                                <div className='foryou-slide' key={index}>
+                            {extendedSlides.map((slide, index) => (
+                                <div className='foryou-slide' key={`${slide.title}-${index}`}>
                                     <div className='foryou-left'>
                                         <div className='text-box'>
                                             <h3>{slide.title}</h3>
@@ -150,7 +195,7 @@ const Foryou = () => {
                     {slideData.map((_, index) => (
                         <button
                             key={index}
-                            className={current === index ? 'bullet active' : 'bullet'}
+                            className={activeIndex === index ? 'bullet active' : 'bullet'}
                             onClick={() => changeSlide(index)}
                         ></button>
                     ))}

@@ -22,7 +22,9 @@
 .foryou {
     width: 100%;
     background: #f5f3ef;
-    padding: 100px 60px 120px;
+    //padding: 100px 60px 120px;
+    padding: 150px 60px 30px 60px;
+    height: 100vh;
 }
 
 .foryou-inner {
@@ -55,7 +57,7 @@
 }
 
 .arrow:hover {
-    opacity: .6;
+    opacity: .5;
 }
 
 /* 카드 한 장을 보여주는 창 */
